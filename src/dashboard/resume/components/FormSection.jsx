@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, Home } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import Summery from './forms/Summery';
 import Experience from './forms/Experience';
+import Education from './forms/Education';
+import Skills from './forms/Skills';
 
 const FormSection = () => {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
@@ -48,8 +50,15 @@ const FormSection = () => {
      {activeFormIndex === 2 && (
         <Summery enabledNext={(v) => setEnableNext(v)} />
       )}
-      
-
+      {activeFormIndex===3 && (
+        <Experience/>
+      )}
+      {activeFormIndex===4 && (
+        <Education/>
+      )}
+      {activeFormIndex===5 && (
+        <Skills/>
+      )}
     </div>
   );
 };

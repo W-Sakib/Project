@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 
 function ExperiencePreview({ resumeInfo }) {
-  // Check if there is experience data
-  if (!resumeInfo?.experience || resumeInfo.experience.length === 0) {
-    return null;  // If no experience data, return null (nothing will be rendered)
+  if (!resumeInfo?.Experience || resumeInfo.Experience.length === 0) {
+    return null;
   }
 
   return (
@@ -16,7 +15,7 @@ function ExperiencePreview({ resumeInfo }) {
       </h2>
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
 
-      {resumeInfo?.experience.map((experience, index) => (
+      {resumeInfo?.Experience.map((experience, index) => (
         <div key={index} className="my-5">
           <h3
             className="text-sm font-bold"
@@ -27,11 +26,10 @@ function ExperiencePreview({ resumeInfo }) {
           <h4 className="text-xs flex justify-between">
             {experience?.companyName}, {experience?.city}, {experience?.state}
             <span>
-              {experience?.startDate} To{' '}
-              {experience?.currentlyWorking ? 'Present' : experience?.endDate}
+              {experience?.startDate} To{" "}
+              {experience?.endDate || "Present"}
             </span>
           </h4>
-          {/* Display work summary if available */}
           {experience?.workSummery && (
             <div
               className="text-xs my-2"
