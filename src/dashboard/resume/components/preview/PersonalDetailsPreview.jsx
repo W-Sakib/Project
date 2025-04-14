@@ -1,39 +1,49 @@
-import React from 'react'
+import React from 'react';
 
-function PersonalDetailPreview({resumeInfo}) {
+function PersonalDetailPreview({ resumeInfo }) {
+  const personal = resumeInfo?.personalInfo || {};
+
   return (
     <div>
-        <h2 className='font-bold text-xl text-center'
-        style={{
-            color:resumeInfo?.themeColor
-        }}
+      <h2
+        className="font-bold text-xl text-center"
+        style={{ color: resumeInfo?.themeColor }}
+      >
+        {personal.firstName} {personal.lastName}
+      </h2>
+
+      <h2 className="text-center text-sm font-medium">
+        {personal.jobTitle}
+      </h2>
+
+      <h2
+        className="text-center font-normal text-xs"
+        style={{ color: resumeInfo?.themeColor }}
+      >
+        {personal.address}
+      </h2>
+
+      <div className="flex justify-between">
+        <h2
+          className="font-normal text-xs"
+          style={{ color: resumeInfo?.themeColor }}
         >
-            {resumeInfo?.firstName} {resumeInfo?.lastName}</h2>
-        <h2 className='text-center text-sm font-medium'
-       >{resumeInfo?.jobTitle}</h2>
-       <h2 className='text-center font-normal text-xs'
-        style={{
-            color:resumeInfo?.themeColor
-        }}>{resumeInfo?.address}</h2>
+          {personal.phone}
+        </h2>
+        <h2
+          className="font-normal text-xs"
+          style={{ color: resumeInfo?.themeColor }}
+        >
+          {personal.email}
+        </h2>
+      </div>
 
-        <div className='flex justify-between'>
-            <h2 className='font-normal text-xs'
-             style={{
-                color:resumeInfo?.themeColor
-            }}>{resumeInfo?.phone}</h2>
-            <h2 className='font-normal text-xs'
-             style={{
-                color:resumeInfo?.themeColor
-            }}>{resumeInfo?.email}</h2>
-
-        </div>
-        <hr className='border-[1.5px] my-2'
-        style={{
-            borderColor:resumeInfo?.themeColor
-        }}
-        />
+      <hr
+        className="border-[1.5px] my-2"
+        style={{ borderColor: resumeInfo?.themeColor }}
+      />
     </div>
-  )
+  );
 }
 
-export default PersonalDetailPreview
+export default PersonalDetailPreview;

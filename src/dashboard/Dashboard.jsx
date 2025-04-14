@@ -20,9 +20,11 @@ const Dashboard = () => {
     if (!email) return;
 
     GlobalApi.GetUserResumes(email).then((resp) => {
-      console.log("Raw resume list:", resp.data);
-      setResumeList(resp.data.data); // ← only .data array
+      const resumes = resp?.data?.data || [];
+      console.log("Resume list:", resumes);
+      setResumeList(resumes);
     });
+    
   };
 
   return (
