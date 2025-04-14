@@ -2,6 +2,7 @@ import { Navigate, NavLink, Outlet } from 'react-router'
 import './App.css'
 import { Button } from "@/components/ui/button"
 import { UserButton, useUser } from '@clerk/clerk-react'
+import { Toaster } from 'sonner';
 
 function App() {
   const {user,isLoaded,isSignedIn}=useUser();
@@ -13,6 +14,7 @@ function App() {
   return (
     <div>
      <Outlet/>
+     <Toaster/>
    </div>
   )
 }

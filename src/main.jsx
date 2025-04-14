@@ -1,12 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import App from "./App.jsx";
 import SignInPage from "./auth/Sign-in/SignIn";
+import "./index.css";
 
-import Dashboard from "./dashboard/Dashboard";
 import { ClerkProvider } from "@clerk/clerk-react";
+import Dashboard from "./dashboard/Dashboard";
+import EditResume from "./dashboard/resume/[resumeid]/index.jsx";
 import Home from "./home/Home";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
   },
+  {
+    path:'/dashboard/resume/:resumeid/edit',
+    element:<EditResume/>
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
